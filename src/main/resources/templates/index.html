@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr"
+  xmlns:th="http://thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8">
+
+    <title>TexWhite</title>
+  </head>
+  <body>
+    <h1>Lista de Produtos</h1>
+    <h3><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons right">add</i>Cadastrar Produto</a></h3>
+    <table class="container">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Litro</th>
+          <th>Preco</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="evento:${eventos}">
+            <td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}"><span th:text="${evento.nome}"></span></a></td>
+            <td><a><span th:text="${evento.tipo}"></span></a></td>
+            <td><a><span th:text="${evento.litro}"></span></a></td>
+            <td><a><span th:text="${evento.preco}"></span></a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
+  </body>
+</html>
